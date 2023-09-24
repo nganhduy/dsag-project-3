@@ -15,7 +15,6 @@ class TrieNode:
         # Add a child node in this Trie
         sub_char_node = TrieNode()
         self.char_dict[char] = sub_char_node
-
         return sub_char_node
 
     def suffixes(self, suffix=''):
@@ -28,7 +27,6 @@ class TrieNode:
             # If end_of_word at this node is true, then add the suffix to result list
             if node.end_of_word:
                 output.append(output_str)
-
             for char in node.char_dict:
                 temp_output_str = output_str + char
                 find_suffix(node.char_dict[char], temp_output_str)
@@ -62,7 +60,7 @@ class Trie:
     def find(self, prefix):
         # Find the Trie node that represents this prefix
         cur_node = self.root
-        
+
         # Traverse the Trie tree base on the character sequence in the prefix
         for char in prefix:
             if char in cur_node.char_dict:
