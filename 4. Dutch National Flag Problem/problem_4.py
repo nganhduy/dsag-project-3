@@ -3,54 +3,38 @@ Problem 4: Dutch National Flag Problem
 '''
 
 def sort_012(input_list):
-
     """
     Given an input array consisting on only 0, 1, and 2, sort the array in a single traversal.
-
     Args:
        input_list(list): List to be sorted
     """
+    low = 0
+    mid = 0
+    high = len(input_list) - 1
 
-    # Test that list elements are 0, 1 or 2
-    assert input_list, 'Must pass a non-empty array of 0, 1 or 2'
-    assert all(isinstance(i, int) for i in input_list), 'Must pass an array of 0, 1 or 2'
-    assert all(i < 3 and i >= 0 for i in input_list), 'Must pass an array of 0, 1 or 2'
+    while mid <= high:
+        if input_list[mid] == 0:
+            input_list[mid], input_list[low] = input_list[low], input_list[mid]
+            low += 1
+            mid += 1
+        elif input_list[mid] == 1:
+            mid += 1
+        else:  # arr[mid] == 2
+            input_list[mid], input_list[high] = input_list[high], input_list[mid]
+            high -= 1
+    return input_list
 
-    # Empty lists to catch sorted elements
-    zero = []
-    ones = []
-    twos = []
+def test_function(test_case):
+    sorted_array = sort_012(test_case)
+    print(sorted_array)
+    if sorted_array == sorted(test_case):
+        print("Pass")
+    else:
+        print("Fail")
 
-    for i in input_list:
-        if i == 2:
-            twos.append(i)
-        elif i == 1:
-            ones.append(i)
-        else:
-            zero.append(i)
-    
-    # Combine into a single list
-    zero.extend(ones)
-    zero.extend(twos)
-    return zero
-
-
-if __name__ == '__main__':
-    test_list_1 = [1, 0, 2, 0]
-    test_list_2 = [0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2]
-    test_list_3 = [0, 0, 0]
-
-    # Test Case 1, Should return [0, 0, 1, 2]
-    print(sort_012(test_list_1))
-
-    # Test Case 2, Should return [0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2]
-    print(sort_012(test_list_2))
-
-    # Test Case 3, Should return [0, 0, 0]
-    print(sort_012(test_list_3))
-
-    # Test Case 4, Single digit, should return [1]
-    print(sort_012([1]))
-
-    # Test Case 5, Empty list, Should raise an error
-    print(sort_012([]))
+test_function([1, 0, 2, 0])
+test_function([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
+test_function([0, 0, 0])
+test_function([0, 0, 2, 2, 2, 1, 1, 1, 2, 0, 2])
+test_function([2, 1, 2, 0, 0, 2, 1, 0, 1, 0, 0, 2, 2, 2, 1, 2, 0, 0, 0, 2, 1, 0, 2, 0, 0, 1])
+test_function([0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2])
