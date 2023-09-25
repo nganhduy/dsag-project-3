@@ -17,7 +17,7 @@ def sort_012(input_list):
     assert all(i < 3 and i >= 0 for i in input_list), 'Must pass an array of 0, 1 or 2'
 
     # Empty lists to catch sorted elements
-    arr = []
+    zero = []
     ones = []
     twos = []
 
@@ -27,12 +27,12 @@ def sort_012(input_list):
         elif i == 1:
             ones.append(i)
         else:
-            arr.append(i)
+            zero.append(i)
     
     # Combine into a single list
-    arr.extend(ones)
-    arr.extend(twos)
-    return arr
+    zero.extend(ones)
+    zero.extend(twos)
+    return zero
 
 
 if __name__ == '__main__':

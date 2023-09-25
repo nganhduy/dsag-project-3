@@ -54,19 +54,19 @@ def sqrt(number):
     return current_guess
 
 
-# Test case 1
+# Test Case 1
 print("Pass" if (5 == sqrt(27)) else "Fail")
-# Test case 2
+# Test Case 2
 print("Pass" if (9 == sqrt(90)) else "Fail")
-# Test case 3
+# Test Case 3
 print("Pass" if (6 == sqrt(40)) else "Fail")
-# Test case 4
+# Test Case 4
 print("Pass" if (11 == sqrt(140)) else "Fail")
-# Test case 5
+# Test Case 5
 print("Pass" if (3 == sqrt(9)) else "Fail")
-# Test case 6
+# Test Case 6
 print("Pass" if (0 == sqrt(0)) else "Fail")
-# Test case 7
+# Test Case 7
 print("Pass" if (5 == sqrt(-27)) else "Fail")
-# Test case 8
+# Test Case 8
 print("Pass" if (0 == sqrt(124)) else "Fail")
