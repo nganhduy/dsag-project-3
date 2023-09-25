@@ -1,2 +1,12 @@
 # Problem 6
-In this problem, the goal is to get the min and max value from an input list in `O(n)` time, with the additional purpose of finding the min and max in a single traversal. To do this, the first value of the list is stored as the min and the max. Then the list is linearly traversed, and each number along the list is compared against the current min and max values, which are updated as needed. The min and max values are then returned. Regarding space complexity, the intermediate min and max values are stored to compare against during the traversal.
+1. The first two if conditions check for edge cases where the list is empty or contains only one element. These conditions have constant time complexity, O(1), as they involve simple comparisons and return statements.
+
+2. The next step initializes the variables smallest and largest to the first element of the list. This operation has constant time complexity, O(1), as it involves accessing a single element.
+
+3. The code then iterates through each element in the list using a for loop. This loop has a time complexity of O(n), where n is the length of the input list. This is because the loop iterates through each element once.
+
+4. Inside the loop, there are two if conditions that check if the current number is smaller than the smallest recorded so far or larger than the largest recorded so far. These conditions have constant time complexity, O(1), as they involve simple comparisons.
+
+5. Finally, the function returns the smallest and largest values as a tuple. This operation has constant time complexity, O(1), as it involves creating and returning a tuple.
+
+Overall, the time complexity of the get_min_max function is O(n), where n is the length of the input list. This is because the function iterates through each element in the list once.
